@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
+
 // --- IMÁGENES ---
 import detectiveDarkIllustration from './assets/detective-dark.png';
 import detectiveLightIllustration from './assets/detective-light.png';
@@ -28,7 +29,6 @@ function App() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   
-  
   const API_URL = 'http://localhost:8080/api/tasks';
 
   useEffect(() => {
@@ -51,7 +51,7 @@ function App() {
     } catch (error) {
       console.error("Error fetching tasks:", error);
       setError('No se pudo conectar al servidor. Asegúrate de que el backend de Java esté corriendo.');
-    }finally {
+    } finally {
       setIsLoading(false);
     }
   };
